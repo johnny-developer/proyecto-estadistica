@@ -9,18 +9,21 @@
 </head>
 <body>
     <h1>*️⃣LA NOMRAL*️⃣</h1>    
-    
-    <form id="miFormulario">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad">
-
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad">
-
-        <button type="button" onclick="construirJSON()">Construir JSON</button>
+    <form id="seleccionForm">
+        <label for="titulo">Eliga el tipo de condicion</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              1._ P(_____<=X <=X)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              2.- p(<=X<=_____)
+            </label>
+        </div> 
+        <button type="button" class="btn btn-primary">GENERAR</button>
     </form>
     
     <script src="../backend/app.js"></script>  
