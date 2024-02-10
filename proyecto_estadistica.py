@@ -1,6 +1,7 @@
 # pip install scipy
 from scipy.stats import norm 
 from normal import normal1X, normal2X
+from aproximacion import Aprox
 
 def mostrar_menu():
     print("1. Bernoulli")
@@ -34,7 +35,8 @@ while True:
                     print("Error: Ingresa un número válido.")
             break
         elif opcion == 3:
-            #Aproximacion
+            #favor de provar el metodo realiza hasta graficacion , pedir ingresar n y p
+            resultado = Aprox(2,.06)
             break
         elif opcion == 4:
             print("Saliendo del programa")
