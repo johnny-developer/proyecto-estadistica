@@ -16,11 +16,8 @@ while True:
     try:
         opcion = int(input("Selecciona una opción: "))
         if opcion == 1:
-            p = 0.5
-            q = 0.5
-            n = 6
-            k= 2
-            resultado = calc_bernoulli (k, n, p, q)
+            #pedir datos n y p 
+            resultado = calc_bernoulli (10, 1/2)
             break
         elif opcion == 2:
             while True:
