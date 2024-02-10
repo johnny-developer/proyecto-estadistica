@@ -1,6 +1,7 @@
 # pip install scipy
 from scipy.stats import norm 
 from normal import normal1X, normal2X
+from bernoulli import calc_bernoulli
 
 def mostrar_menu():
     print("1. Bernoulli")
@@ -8,13 +9,18 @@ def mostrar_menu():
     print("3. Aproximacion)")
     print("4. Salir :)")
 
+resultado = ""
     
 while True:
     mostrar_menu()
     try:
         opcion = int(input("Selecciona una opción: "))
         if opcion == 1:
-            #bernoulli
+            p = 0.5
+            q = 0.5
+            n = 6
+            k= 2
+            resultado = calc_bernoulli (k, n, p, q)
             break
         elif opcion == 2:
             while True:
@@ -22,11 +28,11 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1,2]: "))
                     if opcion_normal == 1:
                         #pedir datos x1, media, desviacion y pasarlos al metodo normal1X
-                        resultado = normal1X(21,23,5)
+                        resultado = normal1X(70,80,4)
                         break
                     elif opcion_normal == 2:
                         #pedir datos x1, x2, media, desviacion y pasarlos al metodo normal2X
-                        resultado = normal2X(21, 27, 23, 5)
+                        resultado = normal2X(85, 90, 80, 4)
                         break
                     else:
                         print("Opción no válida.")
