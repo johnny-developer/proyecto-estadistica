@@ -22,11 +22,18 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1,2]: "))
                     if opcion_normal == 1:
                         #pedir datos x1, media, desviacion y pasarlos al metodo normal1X
-                        resultado = normal1X(21,23,5)
+                        x1 = float(input("Ingrese el valor de x1: "))
+                        media = float(input("Ingrese el valor de la media: "))
+                        desviacion = float(input("Ingrese el valor de la desviación estándar: "))
+                        resultado = normal1X(x1, media, desviacion)
                         break
                     elif opcion_normal == 2:
                         #pedir datos x1, x2, media, desviacion y pasarlos al metodo normal2X
-                        resultado = normal2X(21, 27, 23, 5)
+                        x1 = float(input("Ingrese el valor de x1: "))
+                        x2 = float(input("Ingrese el valor de x2: "))
+                        media = float(input("Ingrese el valor de la media: "))
+                        desviacion = float(input("Ingrese el valor de la desviación estándar: "))
+                        resultado = normal2X(x1, x2, media, desviacion)
                         break
                     else:
                         print("Opción no válida.")
