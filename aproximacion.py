@@ -1,27 +1,59 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import binom, norm
 
-def Aprox(n,p):
-    # Generar datos de la distribución binomial
-    binomial_calculo = np.random.binomial(n, p, 1000)
+from scipy.stats import norm
+from math import sqrt
+from bernoulli import bernoulli_entre_2valores, bernoulli_menor_que, bernoulli_mayor_que
 
-    # Calcular la media y la desviación estándar de la distribución binomial
-    media_binomial = np.mean(binomial_calculo)
-    desviacion_binomial = np.std(binomial_calculo)
+def aprox2X(x1, x2, n, p):
+    q = 1 -p
+    media = n * p
+    desviacion = sqrt((n * p * q))
+    bernoulli = bernoulli_entre_2valores(x1, x2, n, p)
+    x1 = x1 - 0.5    
+    x2 = x2 + 0.5
+    z1 = norm.cdf(x1, media, desviacion)
+    z2 = norm.cdf(x2, media, desviacion)  
+    if z1 <= 0 <= z2:
+       probabilidad = z2 + z1
+    elif z1 <= z2 <= 0:
+       probabilidad = z1 - z2
+    elif 0 <= z1 <= z2:
+       probabilidad = z2 - z1 
+    else:
+        return 'Ocurrio un error'
+    print("")
+    return f'P({x1} <= X <= {x2}): {probabilidad} \n{bernoulli}'
 
-    # Aproximación a la distribución normal usando el teorema del límite central
-    normal_approximacion = norm(loc=media_binomial, scale=desviacion_binomial)
 
-    # Generar datos para la distribución normal aproximada
-    x = np.linspace(min(binomial_calculo), max(binomial_calculo), 100)
-    pdf_normal_approximacion = normal_approximacion.pdf(x)
+def menu():
+    print("Eliga la opcion")
+    print("1. P(Z <= x1)")
+    print("2. P(Z >= x1)")
+        
+def aprox1X(x1, n, p):
+    q = 1 -p
+    media = n * p
+    desviacion = sqrt((n * p * q))
+    while True:
+        menu()
+        try:
+            opcion = int(input("Selecciona una opción: "))
+            if opcion == 1:
+                cadena = f'P(X <= {x1})'
+                bernoulli = bernoulli_menor_que(x1, n, p)
+                x1 = x1 + 0.5    
+                z1 =  norm.cdf(x1, media, desviacion)
+                break
+            elif opcion == 2:
+                cadena = f'P(X >= {x1})'
+                bernoulli = bernoulli_mayor_que(x1, n, p)
+                x1 = x1 - 0.5    
+                z1 = 1 - norm.cdf(x1, media, desviacion)
+                break
+            else:
+                print("Opción no válida.")
+                continue
+        except ValueError:
+            print("Error: Ingresa un número válido.")
+    print("")
+    return f'{cadena}: {z1} \n{bernoulli}'
 
-    # Graficar los resultados
-    plt.hist(binomial_calculo, bins=20, density=True, alpha=0.5, label='Distribución Binomial')
-    plt.plot(x, pdf_normal_approximacion, color='red', label='Aproximación Normal')
-    plt.title('Aproximación Binomial a Normal')
-    plt.xlabel('Valor')
-    plt.ylabel('Densidad de Probabilidad')
-    plt.legend()
-    return 'ejemplo exitoso'
