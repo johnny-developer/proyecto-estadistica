@@ -13,7 +13,10 @@ def normal2X(x1, x2, media, desviacion):
             print("Opción no válida.")
             continue
     z1 = norm.cdf(x1, media, desviacion)
-    z2 = norm.cdf(x2, media, desviacion)  
+    z2 = norm.cdf(x2, media, desviacion) 
+    z1 = abs(z1)
+    z2 = abs(z2) 
+    
     if z1 <= 0 <= z2:
        probabilidad = z2 + z1
     elif z1 <= z2 <= 0:
@@ -22,10 +25,8 @@ def normal2X(x1, x2, media, desviacion):
        probabilidad = z2 - z1 
     else:
         return 'Ocurrio un error'
-    return f'La P({x1} <= X <= {x2}) es: {probabilidad}'
-
-
-
+    
+    return f'P({x1} <= X <= {x2}): {probabilidad}'
 
 
 def menu():
@@ -43,20 +44,22 @@ def normal1X(x1, media, desviacion):
             break
         else:
             print("Opción no válida.")
-            continue  
+            continue
     while True:
         menu()
         try:
             opcion = int(input("Selecciona una opción: "))
             if opcion == 1:
-                cadena= 'P(X <= {x1})'
+                cadena = f'P(X <= {x1})'
                 z1 =  norm.cdf(x1, media, desviacion)
+                break
             elif opcion == 2:
-                cadena= 'P(X >= {x1})'
+                cadena = f'P(X >= {x1})'
                 z1 =  1 - norm.cdf(x1, media, desviacion)
+                break
             else:
                 print("Opción no válida.")
                 continue
         except ValueError:
             print("Error: Ingresa un número válido.")
-    return f'La {cadena} es: {z1}'
+    return f'{cadena}: {z1}'
