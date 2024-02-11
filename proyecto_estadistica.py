@@ -39,23 +39,38 @@ while True:
                     opcion_bernoulli = int(input("Eliga una opcion entre [1-5]: "))
                     if opcion_bernoulli == 1:
                         #pedir k, n y p
-                        resultado = bernoulli_uno(k=1, n=10, p=1/2)
+                        k = input("porfavor ingresa valor de x(k): ")
+                        n= input("porfavor ingrese el numero de veces(n): ")
+                        p = input("porfavor ingresa probabilidad (p):")
+                        resultado = bernoulli_uno(k, n, p=1/2)
                         break
                     elif opcion_bernoulli == 2:
                         #pedir n y p
-                        resultado = bernoulli_todos(n=10, p=1/2)
+                        n = input("ingrese el numero de veces(n): ")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = bernoulli_todos(n, p)
                         break
                     elif opcion_bernoulli == 3:
                         #pedir datos k1, k2, n, p
-                        resultado = bernoulli_entre_2valores(rango_inicio=1, rango_fin=5, n=10, p=1/2)
+                        rango_inicio = input("ingrese el rango inicial: ")
+                        rango_fin = input("ingrese el rango final: ")
+                        n = input("ingrese el numero de veces(n):")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = bernoulli_entre_2valores(rango_inicio, rango_fin, n, p)
                         break
                     elif opcion_bernoulli == 4:
                         #pedir datos k, n, p
-                        resultado = bernoulli_menor_que(rango_fin=1, n=10, p=1/2)
+                        rango_fin = input("ingrese el rang: ")
+                        n = input("ingrese el numero de veces(n):")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = bernoulli_menor_que(rango_fin, n, p)
                         break
                     elif opcion_bernoulli == 5:
                         #pedir datos k, n, p
-                        resultado = bernoulli_mayor_que(rango_inicio=1, n=10, p=1/2)
+                        rango_inicio = input("ingrese el rango inicial: ")
+                        n = input("ingrese el numero de veces(n):")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = bernoulli_mayor_que(rango_inicio, n, p)
                         break
                     else:
                         print("Opción no válida.")
@@ -72,11 +87,18 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1-2]: "))
                     if opcion_normal == 1:
                         #pedir datos x1, media, desviacion
-                        resultado = normal1X(400, 9600, 0.04)
+                        x1 = input("ingrese el valor de x: ")
+                        media = input("ingrese la media: ")
+                        desviacion = input("ingrese la desviacion: ")
+                        resultado = normal1X(x1, media, desviacion)
                         break
                     elif opcion_normal == 2:
                         #pedir datos x1, x2, media, desviacion
-                        resultado = normal2X(70, 80, 68, 6)
+                        x1 = input("ingrese el valor de x1: ")
+                        x2 = input("ingrese el valor de x2: ")
+                        media = input("ingrese la media: ")
+                        desviacion = input("ingrese la desviacion: ")
+                        resultado = normal2X(x1, x2, media, desviacion)
                         break
                     else:
                         print("Opción no válida.")
@@ -93,11 +115,18 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1,2]: "))
                     if opcion_normal == 1:
                         #pedir x1, n, p
-                        resultado = aprox1X(400, 9600, 0.04)
+                        x1 = input("ingrese el valor de x: ")
+                        n = input("ingrese el numero de veces(n): ")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = aprox1X(x1, n, p)
                         break
                     elif opcion_normal == 2:
                         #pedir x1, x2, n, p
-                        resultado = aprox2X(60, 60, 100, 1/2)
+                        x1 = input("ingrese el valor de x1: ")
+                        x2 = input("ingrese el valor de x2: ")
+                        n = input("ingrese el numero de veces(n): ")
+                        p = input("ingrese la probabilidad(p): ")
+                        resultado = aprox2X(x1, x2, n, p)
                         break
                     else:
                         print("Opción no válida.")
