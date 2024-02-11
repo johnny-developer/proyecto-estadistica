@@ -16,6 +16,13 @@ def mostrar_menu():
     print("3. ---Aproximacion-----")
     print("4. Salir")
 
+def menu_bernouli():
+    print("1. Uno")
+    print("2. Todos")
+    print("3. Rango")
+    print("4. Menor que")
+    print("5. Mayor que")
+    
 
 resultado = ""
     
@@ -25,7 +32,48 @@ while True:
     try:
         opcion = int(input("Selecciona una opción: "))
         if opcion == 1:
-            #bernoulli
+            while True:
+                limpiar_consola()
+                print("===========BERNOULLI============")
+                menu_bernouli()
+                try:
+                    opcion_bernoulli = int(input("Eliga una opcion entre [1-5]: "))
+                    if opcion_bernoulli == 1:
+                        k = float(input("porfavor ingresa valor de x(k): "))
+                        n= float(input("porfavor ingrese el numero de veces(n): "))
+                        p = float(input("porfavor ingresa probabilidad (p):"))
+                        resultado = bernoulli_uno(k, n, p=1/2)
+                        break
+                    elif opcion_bernoulli == 2:
+                        n = float(input("ingrese el numero de veces(n): "))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = bernoulli_todos(n, p)
+                        break
+                    elif opcion_bernoulli == 3:
+                        rango_inicio = float(input("ingrese el rango inicial: "))
+                        rango_fin = float(input("ingrese el rango final: "))
+                        n = float(input("ingrese el numero de veces(n):"))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = bernoulli_entre_2valores(rango_inicio, rango_fin, n, p)
+                        break
+                    elif opcion_bernoulli == 4:
+                        rango_fin = float(input("ingrese el rang: "))
+                        n = float(input("ingrese el numero de veces(n):"))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = bernoulli_menor_que(rango_fin, n, p)
+                        break
+                    elif opcion_bernoulli == 5:
+                        rango_inicio = float(input("ingrese el rango inicial: "))
+                        n = float(input("ingrese el numero de veces(n):"))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = bernoulli_mayor_que(rango_inicio, n, p)
+                        break
+                    else:
+                        print("Opción no válida.")
+                        time.sleep(1)
+                except ValueError:
+                    print("Error: Ingresa un número válido.")
+                    time.sleep(1)
             break
         elif opcion == 2:
             while True:
