@@ -35,11 +35,18 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1-2]: "))
                     if opcion_normal == 1:
                         #pedir datos x1, media, desviacion
-                        resultado = normal1X(400, 9600, 0.04)
+                        x1 = float(input("ingrese el valor de x: "))
+                        media = float(input("ingrese la media: "))
+                        desviacion = float(input("ingrese la desviacion: "))
+                        resultado = normal1X(x1, media, desviacion)
                         break
                     elif opcion_normal == 2:
                         #pedir datos x1, x2, media, desviacion
-                        resultado = normal2X(70, 80, 68, 6)
+                        x1 = float(input("ingrese el valor de x1: "))
+                        x2 = float(input("ingrese el valor de x2: "))
+                        media = float(input("ingrese la media: "))
+                        desviacion = float(input("ingrese la desviacion: "))
+                        resultado = normal2X(x1, x2, media, desviacion)
                         break
                     else:
                         print("Opción no válida.")
@@ -56,11 +63,18 @@ while True:
                     opcion_normal = int(input("Num variables de la condicion? [1,2]: "))
                     if opcion_normal == 1:
                         #pedir x1, n, p
-                        resultado = aprox1X(400, 9600, 0.04)
+                        x1 = float(input("ingrese el valor de x: "))
+                        n = float(input("ingrese el numero de veces(n): "))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = aprox1X(x1, n, p)
                         break
                     elif opcion_normal == 2:
                         #pedir x1, x2, n, p
-                        resultado = aprox2X(60, 60, 100, 1/2)
+                        x1 = float(input("ingrese el valor de x1: "))
+                        x2 = float(input("ingrese el valor de x2: "))
+                        n = float(input("ingrese el numero de veces(n): "))
+                        p = float(input("ingrese la probabilidad(p): "))
+                        resultado = aprox2X(x1, x2, n, p)
                         break
                     else:
                         print("Opción no válida.")
