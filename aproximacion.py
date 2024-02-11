@@ -1,3 +1,4 @@
+
 from scipy.stats import norm
 from math import sqrt
 from bernoulli import bernoulli_entre_2valores, bernoulli_menor_que, bernoulli_mayor_que
@@ -55,3 +56,4 @@ def aprox1X(x1, n, p):
             print("Error: Ingresa un número válido.")
     print("")
     return f'{cadena}: {z1} \n{bernoulli}'
+
