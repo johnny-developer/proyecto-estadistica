@@ -17,13 +17,7 @@ def mostrar_menu():
     print("3. ---Aproximacion-----")
     print("4. Salir")
 
-def menu_bernouli():
-    print("1. Uno")
-    print("2. Todos")
-    print("3. Rango")
-    print("4. Menor que")
-    print("5. Mayor que")
-    
+
 resultado = ""
     
 while True:
@@ -32,38 +26,7 @@ while True:
     try:
         opcion = int(input("Selecciona una opción: "))
         if opcion == 1:
-            while True:
-                limpiar_consola()
-                print("===========BERNOULLI============")
-                menu_bernouli()
-                try:
-                    opcion_bernoulli = int(input("Eliga una opcion entre [1-5]: "))
-                    if opcion_bernoulli == 1:
-                        #pedir k, n y p
-                        resultado = bernoulli_uno(k=1, n=10, p=1/2)
-                        break
-                    elif opcion_bernoulli == 2:
-                        #pedir n y p
-                        resultado = bernoulli_todos(n=10, p=1/2)
-                        break
-                    elif opcion_bernoulli == 3:
-                        #pedir datos k1, k2, n, p
-                        resultado = bernoulli_entre_2valores(rango_inicio=1, rango_fin=5, n=10, p=1/2)
-                        break
-                    elif opcion_bernoulli == 4:
-                        #pedir datos k, n, p
-                        resultado = bernoulli_menor_que(rango_fin=1, n=10, p=1/2)
-                        break
-                    elif opcion_bernoulli == 5:
-                        #pedir datos k, n, p
-                        resultado = bernoulli_mayor_que(rango_inicio=1, n=10, p=1/2)
-                        break
-                    else:
-                        print("Opción no válida.")
-                        time.sleep(1)
-                except ValueError:
-                    print("Error: Ingresa un número válido.")
-                    time.sleep(1)
+            #bernoulli
             break
         elif opcion == 2:
             while True:
