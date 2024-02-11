@@ -1,7 +1,7 @@
 # pip install scipy
 from scipy.stats import norm 
 from normal import normal1X, normal2X
-from bernoulli import bernoulli_todos, bernoulli_entre_2valores, bernoulli_menor_que, bernoulli_mayor_que, bernoulli_uno
+from bernoolly import calcular_probabilidad_bernuolli
 from aproximacion import aprox1X, aprox2X
 import os
 import time
